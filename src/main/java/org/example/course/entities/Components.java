@@ -29,5 +29,5 @@ public class Components {
     @OneToMany(mappedBy = "component")
     private List<Assembly> assemblies;
 
-    // Getters and Setters
+
 }

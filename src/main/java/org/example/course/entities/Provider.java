@@ -8,7 +8,8 @@ import java.util.List;
 @Table(name = "provider")
 public class Provider {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "providerIdSequence")
+    @SequenceGenerator(name = "providerIdSequence", sequenceName = "provider_id_seq", allocationSize = 1)
     private Long id;
 
     @Column(nullable = false)
@@ -23,5 +24,54 @@ public class Provider {
     @OneToMany(mappedBy = "provider")
     private List<Provide> provides;
 
-    // Getters and Setters
+    public Provider(String adress, Long amountOfDebt, String name, List<Provide> provides) {
+        this.adress = adress;
+        this.amountOfDebt = amountOfDebt;
+        this.name = name;
+        this.provides = provides;
+    }
+
+    public Provider() {
+
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public Long getAmountOfDebt() {
+        return amountOfDebt;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Provide> getProvides() {
+        return provides;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public void setAmountOfDebt(Long amountOfDebt) {
+        this.amountOfDebt = amountOfDebt;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setProvides(List<Provide> provides) {
+        this.provides = provides;
+    }
 }

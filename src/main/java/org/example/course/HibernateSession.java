@@ -11,7 +11,7 @@ public class HibernateSession {
                 .setProperty("hibernate.connection.username", "postgres")
                 .setProperty("hibernate.connection.password", "sef123")
                 .setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect")
-                .setProperty("hibernate.hbm2ddl.auto", "create")
+                //.setProperty("hibernate.hbm2ddl.auto", "create")
                 .addAnnotatedClass(Assembly.class)
                 .addAnnotatedClass(CheckProvide.class)
                 .addAnnotatedClass(CheckSaleComponent.class)
