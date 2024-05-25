@@ -26,5 +26,4 @@ public class TradeAgent {
     @OneToMany(mappedBy = "pagerNumber")
     private List<Hire> hires;
 
-    // Getters and Setters
 }

@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class ProviderController {
+public class ProviderController implements Initializable {
     @FXML
     private TableView<Provider> provider_table = new TableView<>();
     @FXML
@@ -32,7 +32,7 @@ public class ProviderController {
     @FXML
     private TableColumn<Provider, String> name;
     @FXML
-    private TextField id_tf;
+    private Label id_tf;
     @FXML
     private TextField amount_tf;
     @FXML
@@ -41,9 +41,9 @@ public class ProviderController {
     private TextField name_tf;
 
     @FXML
-    protected void provider (){
+    protected void provider() {
 
-        provider_table.setOnMouseClicked(event->{
+        provider_table.setOnMouseClicked(event -> {
             Provider provider = provider_table.getSelectionModel().getSelectedItem();
             id_tf.setText(String.valueOf(provider.getId()));
             amount_tf.setText(String.valueOf(provider.getAmountOfDebt()));
@@ -68,26 +68,49 @@ public class ProviderController {
         });
 
     }
-//    public void Edit() {
-//        try {
-//            conn = DButils.ConnectDb();
-////            String id = id_tf.getText();
-//            String amount = amount_tf.getText();
-//            String adress = (col_id.getCellData(index).toString());
-//            String name = (col_id.getCellData(index).toString());
-//            String sql = "update users set login = ?,password= ? where
-//            user_id= ?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1,login);
-//            ps.setString(2,password);
-//            ps.setString(3,id);
-//            ps.execute();
-//            UpdateTable();
-//        } catch (Exception e) {
-//            //JOptionPane.showMessageDialog(null, e);
-//            e.printStackTrace();
-//        }
-//    }
 
+    public void edit() {
+//        Provider provider = new Provider();
+//        provider.setId(Long.parseLong(id_tf.getText()));
+//        provider.setAdress(adress_tf.getText());
+//        provider.setAmountOfDebt(Long.parseLong(amount_tf.getText()));
+//        provider.setName(name_tf.getText());
+        if (id_tf.getText().equals("New") || id_tf.getText().equals("")) {
+            HibernateSession.sessionFactory().inTransaction(session -> {
+                Provider provider = new Provider(adress_tf.getText(), Long.parseLong(amount_tf.getText()), name_tf.getText(), null);
+                session.persist(provider);
+                session.flush();
+            });
+        } else HibernateSession.sessionFactory().inTransaction(session -> {
+            Provider provideredited = session.get(Provider.class, Long.parseLong(id_tf.getText()));
+            provideredited.setAdress(adress_tf.getText());
+            provideredited.setAmountOfDebt(Long.parseLong(amount_tf.getText()));
+            provideredited.setName(name_tf.getText());
+            session.persist(provideredited);
+            session.flush();
+        });
+        provider();
+    }
 
+    @FXML
+    private void generateNew() {
+        id_tf.setText("New");
+        adress_tf.setText("");
+        amount_tf.setText("");
+        name_tf.setText("");
+    }
+
+    @FXML
+    private void delete() {
+        HibernateSession.sessionFactory().inTransaction(session -> {
+            Provider provider = session.get(Provider.class, Long.parseLong(id_tf.getText()));
+            session.remove(provider);
+        });
+        provider();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        provider();
+    }
 }

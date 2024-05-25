@@ -11,7 +11,7 @@ public class EndProduct {
     private Long id;
 
     @Column(nullable = false)
-    private String timeToProduce;
+    private Long timeToProduce;
 
     @Column(nullable = false)
     private Long amount;
