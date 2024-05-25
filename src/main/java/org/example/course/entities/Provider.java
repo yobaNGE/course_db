@@ -74,4 +74,15 @@ public class Provider {
     public void setProvides(List<Provide> provides) {
         this.provides = provides;
     }
+
+    @Override
+    public String toString() {
+        return "Provider{" +
+                "id=" + id +
+                ", adress='" + adress + '\'' +
+                ", amountOfDebt=" + amountOfDebt +
+                ", name='" + name + '\'' +
+                ", provides=" + provides +
+                '}';
+    }
 }
