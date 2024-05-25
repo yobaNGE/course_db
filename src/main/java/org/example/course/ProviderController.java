@@ -9,11 +9,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.example.course.entities.Provider;
 
@@ -33,9 +31,26 @@ public class ProviderController {
     private TableColumn<Provider, String> adress;
     @FXML
     private TableColumn<Provider, String> name;
+    @FXML
+    private TextField id_tf;
+    @FXML
+    private TextField amount_tf;
+    @FXML
+    private TextField adress_tf;
+    @FXML
+    private TextField name_tf;
 
     @FXML
     protected void provider (){
+
+        provider_table.setOnMouseClicked(event->{
+            Provider provider = provider_table.getSelectionModel().getSelectedItem();
+            id_tf.setText(String.valueOf(provider.getId()));
+            amount_tf.setText(String.valueOf(provider.getAmountOfDebt()));
+            adress_tf.setText(String.valueOf(provider.getAdress()));
+            name_tf.setText(String.valueOf(provider.getName()));
+        });
+
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         adress.setCellValueFactory(new PropertyValueFactory<>("adress"));
         amountofdebt.setCellValueFactory(new PropertyValueFactory<>("amountOfDebt"));
@@ -51,5 +66,28 @@ public class ProviderController {
             });
             System.out.println();
         });
+
     }
+//    public void Edit() {
+//        try {
+//            conn = DButils.ConnectDb();
+////            String id = id_tf.getText();
+//            String amount = amount_tf.getText();
+//            String adress = (col_id.getCellData(index).toString());
+//            String name = (col_id.getCellData(index).toString());
+//            String sql = "update users set login = ?,password= ? where
+//            user_id= ?";
+//            PreparedStatement ps = conn.prepareStatement(sql);
+//            ps.setString(1,login);
+//            ps.setString(2,password);
+//            ps.setString(3,id);
+//            ps.execute();
+//            UpdateTable();
+//        } catch (Exception e) {
+//            //JOptionPane.showMessageDialog(null, e);
+//            e.printStackTrace();
+//        }
+//    }
+
+
 }
