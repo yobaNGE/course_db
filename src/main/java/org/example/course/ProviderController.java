@@ -4,6 +4,7 @@ import jakarta.persistence.Table;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -39,6 +40,8 @@ public class ProviderController implements Initializable {
     private TextField adress_tf;
     @FXML
     private TextField name_tf;
+    @FXML
+    private Button back;
 
     @FXML
     protected void provider() {
@@ -112,5 +115,15 @@ public class ProviderController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         provider();
+    }
+    @FXML
+    void goBack(ActionEvent event) throws IOException { // GO BACK!!!
+        Stage stage = (Stage) back.getScene().getWindow();
+        Parent root =
+                FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        ;
+        stage.setTitle("Main");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }
