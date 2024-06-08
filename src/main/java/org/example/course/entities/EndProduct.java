@@ -84,4 +84,7 @@ public class EndProduct {
     public void setCheckSaleEndProducts(List<CheckSaleEndProduct> checkSaleEndProducts) {
         this.checkSaleEndProducts = checkSaleEndProducts;
     }
+    public long getAssemblyId() {
+        return assembly.getId();
+    }
 }

@@ -62,7 +62,7 @@ public class Request1Controller implements Initializable {
         amount.setCellValueFactory(new PropertyValueFactory<>("amount"));
         cost_per_thing.setCellValueFactory(new PropertyValueFactory<>("costPerThing"));
         min_amount.setCellValueFactory(new PropertyValueFactory<>("minAmount"));
-        assembly_id.setCellValueFactory(new PropertyValueFactory<>("assembly.id"));
+        assembly_id.setCellValueFactory(new PropertyValueFactory<>("assemblyId"));
 //        request1();
     }
 }
