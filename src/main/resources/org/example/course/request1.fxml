@@ -7,12 +7,12 @@
    <children>
       <TableView fx:id="request1_table" layoutX="135.0" layoutY="14.0" prefHeight="369.0" prefWidth="451.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="id" />
-          <TableColumn prefWidth="75.0" text="time_to_produce" />
-            <TableColumn prefWidth="75.0" text="amount" />
-            <TableColumn prefWidth="75.0" text="cost_per_thing" />
-            <TableColumn prefWidth="75.0" text="min_amount" />
-            <TableColumn prefWidth="75.0" text="assembly_id" />
+          <TableColumn prefWidth="75.0" text="id" fx:id="id" />
+          <TableColumn prefWidth="75.0" text="time_to_produce" fx:id="time_to_produce"/>
+            <TableColumn prefWidth="75.0" text="amount" fx:id="amount"/>
+            <TableColumn prefWidth="75.0" text="cost_per_thing" fx:id="cost_per_thing"/>
+            <TableColumn prefWidth="75.0" text="min_amount" fx:id="min_amount"/>
+            <TableColumn prefWidth="75.0" text="assembly_id" fx:id="assembly_id"/>
         </columns>
       </TableView>
       <TextField fx:id="text_tf" layoutX="14.0" layoutY="266.0" prefHeight="26.0" prefWidth="116.0" promptText="Время изготовления" />
