@@ -8,10 +8,10 @@
     <children>
         <TableView fx:id="provider_table" layoutX="197.0" layoutY="54.0" prefHeight="333.0" prefWidth="389.0">
             <columns>
-                <TableColumn fx:id="id" prefWidth="75.0" text="id" />
-                <TableColumn fx:id="amountofdebt" prefWidth="75.0" text="amountofdebt" />
-                <TableColumn fx:id="adress" prefWidth="75.0" text="adress" />
-                <TableColumn fx:id="name" prefWidth="75.0" text="name" />
+                <TableColumn fx:id="id" prefWidth="74.0" text="id" />
+                <TableColumn fx:id="amountofdebt" prefWidth="91.0" text="amountofdebt" />
+                <TableColumn fx:id="adress" minWidth="0.0" prefWidth="107.0" text="adress" />
+                <TableColumn fx:id="name" prefWidth="116.0" text="name" />
             </columns>
         </TableView>
         <Button fx:id="provider_button" layoutX="48.0" layoutY="84.0" mnemonicParsing="false" onAction="#provider" text="Update table!" />
