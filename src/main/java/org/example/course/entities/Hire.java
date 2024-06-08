@@ -24,5 +24,45 @@ public class Hire {
     @Column(nullable = false)
     private Long salary;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getPagerNumber() {
+        return pagerNumber;
+    }
+
+    public void setPagerNumber(Long pagerNumber) {
+        this.pagerNumber = pagerNumber;
+    }
+
+    public Firm getFirm() {
+        return firm;
+    }
+
+    public void setFirm(Firm firm) {
+        this.firm = firm;
+    }
+
+    public Date getDateOfContract() {
+        return dateOfContract;
+    }
+
+    public void setDateOfContract(Date dateOfContract) {
+        this.dateOfContract = dateOfContract;
+    }
+
+    public Long getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Long salary) {
+        this.salary = salary;
+    }
+
     // Getters and Setters
 }

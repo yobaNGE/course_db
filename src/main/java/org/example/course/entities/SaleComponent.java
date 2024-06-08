@@ -29,5 +29,51 @@ public class SaleComponent {
     @Column(nullable = false)
     private Date dateOfSupply;
 
-    // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Firm getFirm() {
+        return firm;
+    }
+
+    public void setFirm(Firm firm) {
+        this.firm = firm;
+    }
+
+    public ClientRep getClientRep() {
+        return clientRep;
+    }
+
+    public void setClientRep(ClientRep clientRep) {
+        this.clientRep = clientRep;
+    }
+
+    public TradeAgent getTradeAgent() {
+        return tradeAgent;
+    }
+
+    public void setTradeAgent(TradeAgent tradeAgent) {
+        this.tradeAgent = tradeAgent;
+    }
+
+    public CheckSaleComponent getCheckSaleComponent() {
+        return checkSaleComponent;
+    }
+
+    public void setCheckSaleComponent(CheckSaleComponent checkSaleComponent) {
+        this.checkSaleComponent = checkSaleComponent;
+    }
+
+    public Date getDateOfSupply() {
+        return dateOfSupply;
+    }
+
+    public void setDateOfSupply(Date dateOfSupply) {
+        this.dateOfSupply = dateOfSupply;
+    }
 }
