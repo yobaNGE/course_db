@@ -21,19 +21,14 @@ public class HelloController {
     private Button go;
 
     @FXML
-    protected void onHelloButtonClick() {
-
-        //run on main thread
-        Platform.runLater(() -> {
-            HibernateSession.sessionFactory().inTransaction(session -> {
-                Provider provider = new Provider("Cum streets 12", 1100L, "mrs.pooper", null);
-                session.persist(provider);
-                session.flush();
-            });
-            System.out.println();
-            //welcomeText.setText("Welcome to JavaFX Application!");
-        });
-        welcomeText.setText("Welcome to JavaFX Application!");
+    protected void onHelloButtonClick(ActionEvent event) throws IOException{
+        Stage stage = (Stage) go.getScene().getWindow();
+        Parent root =
+                FXMLLoader.load(getClass().getResource("request1.fxml"));
+        ;
+        stage.setTitle("Provider");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
     @FXML
     void goProvider(ActionEvent event) throws IOException { // GO BACK!!!

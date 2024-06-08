@@ -37,29 +37,25 @@ public class Request1Controller implements Initializable {
     @FXML
     private TableColumn<EndProduct, Long> assembly_id;
 
+    @FXML
     protected void request1() {
         Platform.runLater(() -> {
             HibernateSession.sessionFactory().inTransaction(session -> {
-                Query query = session.createQuery("from EndProduct where timeToProduce=:n order by id desc", Provider.class);
+                Query query = session.createQuery("from EndProduct where timeToProduce=:n order by id desc", EndProduct.class);
                 query.setParameter("n", Long.parseLong(text_tf.getText()));
                 ObservableList<EndProduct> providerObservableList =
                         FXCollections.observableArrayList(
                                 query.getResultList()
                         );
+                System.out.println(providerObservableList);
                 request1_table.setItems(providerObservableList);
             });
         });
-//        Query query = session.createQuery("from EndProduct where timeToProduce=:n order by id desc", Provider.class);
-//        query.setParameter("n", 2);
-//        ObservableList<Provider> providerObservableList =
-//                FXCollections.observableArrayList(
-//                        query.getResultList()
-//                );
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        request1();
+//        request1();
     }
 }
