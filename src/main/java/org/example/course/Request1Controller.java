@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import org.example.course.entities.EndProduct;
 import org.example.course.entities.Provider;
 import org.hibernate.SessionFactory;
@@ -56,6 +57,12 @@ public class Request1Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        time_to_produce.setCellValueFactory(new PropertyValueFactory<>("timeToProduce"));
+        amount.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        cost_per_thing.setCellValueFactory(new PropertyValueFactory<>("costPerThing"));
+        min_amount.setCellValueFactory(new PropertyValueFactory<>("minAmount"));
+        assembly_id.setCellValueFactory(new PropertyValueFactory<>("assembly.id"));
 //        request1();
     }
 }
