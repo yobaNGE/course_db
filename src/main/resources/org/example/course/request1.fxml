@@ -15,7 +15,7 @@
             <TableColumn prefWidth="75.0" text="assembly_id" />
         </columns>
       </TableView>
-      <TextField fx:id="text_tf" layoutX="58.0" layoutY="321.0" promptText="Время изготовления" />
-      <Button fx:id="search_bth" layoutX="96.0" layoutY="354.0" mnemonicParsing="false" text="Поиск" />
+      <TextField fx:id="text_tf" layoutX="14.0" layoutY="266.0" prefHeight="26.0" prefWidth="116.0" promptText="Время изготовления" />
+      <Button fx:id="search_bth" layoutX="47.0" layoutY="306.0" mnemonicParsing="false" text="Поиск" />
    </children>
 </AnchorPane>
