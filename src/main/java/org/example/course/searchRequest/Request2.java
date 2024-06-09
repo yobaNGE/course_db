@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.example.course.HibernateSession;
@@ -37,6 +38,10 @@ public class Request2 implements Initializable {
     private TableColumn<Result, Long> id;
     @FXML
     private TableColumn<Result, Long> scope_of_supply;
+    @FXML
+    private TextField scope;
+    @FXML
+    private TextField time;
 
     public void request2(ActionEvent event) {
     }
@@ -65,7 +70,9 @@ public class Request2 implements Initializable {
                 Query query = session.createQuery("SELECT e.id, c.scopeOfSupply " +
                         "FROM EndProduct e JOIN CheckSaleEndProduct c " +
                         "ON e.id = c.articul " +
-                        "WHERE e.timeToProduce = 3 AND c.scopeOfSupply = 50");
+                        "WHERE e.timeToProduce =:n AND c.scopeOfSupply =:b");
+                query.setParameter("n", Long.parseLong(time.getText()));
+                query.setParameter("b", Long.parseLong(scope.getText()));
                 List<Result> list = new ArrayList<>(5);
                 for (Object o : query.getResultList()) {
                     Object[] row = (Object[]) o;

@@ -99,4 +99,7 @@ public class Components {
         this.costPerThing = costPerThing;
         this.name = name;
     }
+
+    public Components() {
+    }
 }
