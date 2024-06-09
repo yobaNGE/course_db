@@ -10,6 +10,7 @@
     </padding>
 
     <Label fx:id="welcomeText" />
-    <Button onAction="#onHelloButtonClick" text="Hello!" />
+    <Button onAction="#onHelloButtonClick" text="Request 1" />
     <Button fx:id="go" onAction="#goProvider" text="Provider!" />
+   <Button fx:id="exist" onAction="#goExist" mnemonicParsing="false" text="Exist and Distinct request" />
 </VBox>

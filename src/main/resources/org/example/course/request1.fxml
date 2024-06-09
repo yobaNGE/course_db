@@ -7,15 +7,16 @@
    <children>
       <TableView fx:id="request1_table" layoutX="135.0" layoutY="14.0" prefHeight="369.0" prefWidth="451.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="id" fx:id="id" />
-          <TableColumn prefWidth="75.0" text="time_to_produce" fx:id="time_to_produce"/>
-            <TableColumn prefWidth="75.0" text="amount" fx:id="amount"/>
-            <TableColumn prefWidth="75.0" text="cost_per_thing" fx:id="cost_per_thing"/>
-            <TableColumn prefWidth="75.0" text="min_amount" fx:id="min_amount"/>
-            <TableColumn prefWidth="75.0" text="assembly_id" fx:id="assembly_id"/>
+          <TableColumn fx:id="id" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="time_to_produce" prefWidth="75.0" text="time_to_produce" />
+            <TableColumn fx:id="amount" prefWidth="75.0" text="amount" />
+            <TableColumn fx:id="cost_per_thing" prefWidth="75.0" text="cost_per_thing" />
+            <TableColumn fx:id="min_amount" prefWidth="75.0" text="min_amount" />
+            <TableColumn fx:id="assembly_id" prefWidth="75.0" text="assembly_id" />
         </columns>
       </TableView>
       <TextField fx:id="text_tf" layoutX="14.0" layoutY="266.0" prefHeight="26.0" prefWidth="116.0" promptText="Время изготовления" />
-      <Button fx:id="search_bth" onAction="#request1" layoutX="47.0" layoutY="306.0" mnemonicParsing="false" text="Поиск" />
+      <Button fx:id="search_bth" layoutX="47.0" layoutY="306.0" mnemonicParsing="false" onAction="#request1" text="Поиск" />
+       <Button fx:id="back" layoutX="48.0" layoutY="345.0" mnemonicParsing="false" onAction="#goBack" text="Назад" />
    </children>
 </AnchorPane>

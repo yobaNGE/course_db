@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course.ExistRequest">
+   <children>
+      <TableView fx:id="exist_request" layoutX="202.0" layoutY="92.0" prefHeight="216.0" prefWidth="196.0">
+        <columns>
+          <TableColumn fx:id="cost_per_thing" prefWidth="107.19998168945312" text="cost_per_thing" />
+          <TableColumn fx:id="name" prefWidth="87.199951171875" text="name" />
+        </columns>
+      </TableView>
+      <Button fx:id="search_bth" onAction="#exist" layoutX="82.0" layoutY="247.0" mnemonicParsing="false" text="Поиск" />
+      <Button fx:id="back" onAction="#goBack" layoutX="82.0" layoutY="295.0" mnemonicParsing="false" text="Назад" />
+      <Label layoutX="210.0" layoutY="55.0" text="Запрос на DISTINCT и EXIST" />
+   </children>
+</AnchorPane>

@@ -13,66 +13,49 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.example.course.entities.Components;
 import org.example.course.entities.EndProduct;
-import org.example.course.entities.Provider;
-import org.hibernate.SessionFactory;
+
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Request1Controller implements Initializable {
-    @FXML
-    private TextField text_tf;
+public class ExistRequest implements Initializable {
     @FXML
     private Button search_btn;
     @FXML
-    private TableView<EndProduct> request1_table = new TableView<>();
-    @FXML
-    private TableColumn<EndProduct, Long> id;
-    @FXML
-    private TableColumn<EndProduct, Long> time_to_produce;
-    @FXML
-    private TableColumn<EndProduct, Long> amount;
-    @FXML
-    private TableColumn<EndProduct, Long> cost_per_thing;
-    @FXML
-    private TableColumn<EndProduct, Long> min_amount;
-    @FXML
-    private TableColumn<EndProduct, Long> assembly_id;
-    @FXML
     private Button back;
+    @FXML
+    private TableView<Components> exist_request = new TableView<Components>();
+    @FXML
+    private TableColumn<Components, Long> cost_per_thing;
+    @FXML
+    private TableColumn<Components, String> name;
 
     @FXML
-    protected void request1() {
+    protected void exist() {
         Platform.runLater(() -> {
             HibernateSession.sessionFactory().inTransaction(session -> {
-                Query query = session.createQuery("from EndProduct where timeToProduce=:n order by id desc", EndProduct.class);
-                query.setParameter("n", Long.parseLong(text_tf.getText()));
-                ObservableList<EndProduct> providerObservableList =
+                Query query = session.createQuery("SELECT DISTINCT name, costPerThing FROM Components WHERE EXISTS (SELECT 1 FROM Components)", Components.class);
+                ObservableList<Components> providerObservableList =
                         FXCollections.observableArrayList(
                                 query.getResultList()
                         );
                 System.out.println(providerObservableList);
-                request1_table.setItems(providerObservableList);
+                exist_request.setItems(providerObservableList);
             });
         });
 
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        time_to_produce.setCellValueFactory(new PropertyValueFactory<>("timeToProduce"));
-        amount.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        name.setCellValueFactory(new PropertyValueFactory<>("name"));
         cost_per_thing.setCellValueFactory(new PropertyValueFactory<>("costPerThing"));
-        min_amount.setCellValueFactory(new PropertyValueFactory<>("minAmount"));
-        assembly_id.setCellValueFactory(new PropertyValueFactory<>("assemblyId"));
-//        request1();
     }
+
     @FXML
     void goBack(ActionEvent event) throws IOException { // GO BACK!!!
         Stage stage = (Stage) back.getScene().getWindow();

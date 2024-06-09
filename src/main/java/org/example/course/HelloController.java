@@ -26,17 +26,27 @@ public class HelloController {
         Parent root =
                 FXMLLoader.load(getClass().getResource("request1.fxml"));
         ;
-        stage.setTitle("Provider");
+        stage.setTitle("Request1");
         stage.setScene(new Scene(root));
         stage.show();
     }
     @FXML
-    void goProvider(ActionEvent event) throws IOException { // GO BACK!!!
+    void goProvider(ActionEvent event) throws IOException {
         Stage stage = (Stage) go.getScene().getWindow();
         Parent root =
                 FXMLLoader.load(getClass().getResource("provider.fxml"));
                 ;
         stage.setTitle("Provider");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    public void goExist(ActionEvent event) throws IOException{
+        Stage stage = (Stage) go.getScene().getWindow();
+        Parent root =
+                FXMLLoader.load(getClass().getResource("existRequest.fxml"));
+        ;
+        stage.setTitle("Exist");
         stage.setScene(new Scene(root));
         stage.show();
     }

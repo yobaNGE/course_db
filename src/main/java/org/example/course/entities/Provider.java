@@ -77,7 +77,7 @@ public class Provider {
 
     @Override
     public String toString() {
-        return "Provider{" +
+    return "Provider{" +
                 "id=" + id +
                 ", adress='" + adress + '\'' +
                 ", amountOfDebt=" + amountOfDebt +
