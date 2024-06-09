@@ -1,5 +1,9 @@
 package org.example.course.searchRequest;
 
+import jakarta.persistence.Query;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,11 +15,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.example.course.HibernateSession;
+import org.example.course.agregationRequest.SumRequest;
 import org.example.course.entities.CheckSaleEndProduct;
 import org.example.course.entities.EndProduct;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Request2 implements Initializable {
@@ -24,13 +32,15 @@ public class Request2 implements Initializable {
     @FXML
     private Button back;
     @FXML
-    private TableView<EndProduct> request2_table = new TableView<EndProduct>();
+    private TableView<Result> request2_table = new TableView<>();
     @FXML
-    private TableColumn<EndProduct, Long> id;
+    private TableColumn<Result, Long> id;
     @FXML
-    private TableColumn<CheckSaleEndProduct, String> scope_of_supply;
+    private TableColumn<Result, Long> scope_of_supply;
+
     public void request2(ActionEvent event) {
     }
+
     @FXML
     void goBack(ActionEvent event) throws IOException { // GO BACK!!!
         Stage stage = (Stage) back.getScene().getWindow();
@@ -46,5 +56,56 @@ public class Request2 implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         scope_of_supply.setCellValueFactory(new PropertyValueFactory<>("scope_of_supply"));
+    }
+
+    @FXML
+    private void search() {
+        Platform.runLater(() -> {
+            HibernateSession.sessionFactory().inTransaction(session -> {
+                Query query = session.createQuery("SELECT e.id, c.scopeOfSupply " +
+                        "FROM EndProduct e JOIN CheckSaleEndProduct c " +
+                        "ON e.id = c.articul " +
+                        "WHERE e.timeToProduce = 3 AND c.scopeOfSupply = 50");
+                List<Result> list = new ArrayList<>(5);
+                for (Object o : query.getResultList()) {
+                    Object[] row = (Object[]) o;
+                    list.add(new Result((Long) row[0], (Long) row[1]));
+                    System.out.println(row[0] + " " + row[1]);
+                }
+                ObservableList<Result> providerObservableList =
+                        FXCollections.observableArrayList(
+                                list
+                        );
+                System.out.println(providerObservableList);
+                request2_table.setItems(providerObservableList);
+                System.out.println(query.getResultList());
+            });
+        });
+    }
+
+    protected class Result {
+        private long id;
+        private long scope_of_supply;
+
+        public Result(long id, long scope_of_supply) {
+            this.id = id;
+            this.scope_of_supply = scope_of_supply;
+        }
+
+        public long getId() {
+            return id;
+        }
+
+        public void setId(long id) {
+            this.id = id;
+        }
+
+        public long getScope_of_supply() {
+            return scope_of_supply;
+        }
+
+        public void setScope_of_supply(long scope_of_supply) {
+            this.scope_of_supply = scope_of_supply;
+        }
     }
 }
