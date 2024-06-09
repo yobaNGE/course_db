@@ -78,7 +78,7 @@ public class Request1Controller implements Initializable {
     void goBack(ActionEvent event) throws IOException { // GO BACK!!!
         Stage stage = (Stage) back.getScene().getWindow();
         Parent root =
-                FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+                FXMLLoader.load(getClass().getResource("/org/example/course/hello-view.fxml"));
         ;
         stage.setTitle("Main");
         stage.setScene(new Scene(root));
