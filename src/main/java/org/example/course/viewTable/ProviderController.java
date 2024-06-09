@@ -1,4 +1,4 @@
-package org.example.course;
+package org.example.course.viewTable;
 
 import jakarta.persistence.Table;
 import javafx.application.Platform;
@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.example.course.HibernateSession;
 import org.example.course.entities.Provider;
 
 import java.io.IOException;

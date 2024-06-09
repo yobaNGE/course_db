@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course.Request4">
+    <children>
+        <TableView fx:id="request4_table" layoutX="174.0" layoutY="92.0" prefHeight="216.0" prefWidth="264.0">
+            <columns>
+                <TableColumn fx:id="firm_name" prefWidth="66.19999694824219" text="firm_name" />
+                <TableColumn fx:id="salary" prefWidth="129.0" text="salary" />
+            <TableColumn fx:id="name" prefWidth="75.0" text="name" />
+            </columns>
+        </TableView>
+        <Button fx:id="search_bth" layoutX="82.0" layoutY="247.0" mnemonicParsing="false" onAction="#request4" text="Поиск" />
+        <Button fx:id="back" layoutX="82.0" layoutY="295.0" mnemonicParsing="false" onAction="#goBack" text="Назад" />
+        <Label layoutX="174.0" layoutY="55.0" text="Первый запрос на поиск информации по 3 таблицам" />
+    </children>
+
+</AnchorPane>

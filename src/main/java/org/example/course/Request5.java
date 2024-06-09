@@ -11,28 +11,25 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import org.example.course.entities.Components;
+import org.example.course.entities.*;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SumRequest implements Initializable {
+public class Request5 implements Initializable {
     @FXML
     private Button search_btn;
     @FXML
     private Button back;
     @FXML
-    private TableView<Components> sum_request = new TableView<Components>();
+    private TableView<Components> request5_table = new TableView<Components>();
     @FXML
-    private TableColumn<Components, Long> id;
+    private TableColumn<Components, Long> articul;
     @FXML
-    private TableColumn<Components, String> total_value;
-
-
-    public void sum(ActionEvent event) {
-    }
-
+    private TableColumn<CheckSaleComponent, String> scope_of_supply;
+    @FXML
+    private TableColumn<SaleComponent, String> date_of_supply;
     @FXML
     void goBack(ActionEvent event) throws IOException { // GO BACK!!!
         Stage stage = (Stage) back.getScene().getWindow();
@@ -43,11 +40,13 @@ public class SumRequest implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
+
+    public void request5(ActionEvent event) {
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        total_value.setCellValueFactory(new PropertyValueFactory<>("total_value"));
+        articul.setCellValueFactory(new PropertyValueFactory<>("articul"));
+        scope_of_supply.setCellValueFactory(new PropertyValueFactory<>("scope_of_supply"));
+        date_of_supply.setCellValueFactory(new PropertyValueFactory<>("date_of_supply"));
     }
-
-
 }
