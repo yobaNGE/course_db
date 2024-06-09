@@ -1,5 +1,6 @@
 package org.example.course;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
@@ -71,9 +72,11 @@ public class AdaptiveController<T> {
     }
 
     private void fillTable(Class<T> entityClass) {
-        Session session = HibernateSession.sessionFactory().openSession();
-        List<T> list = session.createQuery("from " + entityClass.getName(), entityClass).list();
-        tableView.getItems().setAll(list);
-        session.close();
+        Platform.runLater(() -> {
+            HibernateSession.sessionFactory().inTransaction(session -> {
+                List<T> list = session.createQuery("from " + entityClass.getName(), entityClass).list();
+                tableView.getItems().setAll(list);
+            });
+        });
     }
 }
