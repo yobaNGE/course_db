@@ -61,42 +61,12 @@ public class HelloController {
         stage.show();
     }
     @FXML
-    public void goReq2(ActionEvent event) throws IOException{
+    private void goUni (ActionEvent event) throws IOException {
         Stage stage = (Stage) go.getScene().getWindow();
         Parent root =
-                FXMLLoader.load(getClass().getResource("request2.fxml"));
+                FXMLLoader.load(getClass().getResource("adaptive-view.fxml"));
         ;
-        stage.setTitle("Sum");
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-    @FXML
-    public void goReq3(ActionEvent event) throws IOException{
-        Stage stage = (Stage) go.getScene().getWindow();
-        Parent root =
-                FXMLLoader.load(getClass().getResource("request3.fxml"));
-        ;
-        stage.setTitle("Sum");
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-    @FXML
-    public void goReq4(ActionEvent event) throws IOException{
-        Stage stage = (Stage) go.getScene().getWindow();
-        Parent root =
-                FXMLLoader.load(getClass().getResource("request4.fxml"));
-        ;
-        stage.setTitle("Sum");
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-    @FXML
-    public void goReq5(ActionEvent event) throws IOException{
-        Stage stage = (Stage) go.getScene().getWindow();
-        Parent root =
-                FXMLLoader.load(getClass().getResource("request5.fxml"));
-        ;
-        stage.setTitle("Sum");
+        stage.setTitle("Uni");
         stage.setScene(new Scene(root));
         stage.show();
     }
