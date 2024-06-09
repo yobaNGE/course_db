@@ -129,42 +129,102 @@ public class AdaptiveController<T> {
 
     @FXML
     private void save() throws InstantiationException, IllegalAccessException {
-        T entity = selectedClass.newInstance();
-        if (entity == null) {
-            return;
-        }
-        Field[] fields = entity.getClass().getDeclaredFields();
-        for (int i = 0; i < fields.length; i++) {
-            Field field = fields[i];
-            try {
-                field.setAccessible(true);
-                TextField textField = (TextField) inputFields.getChildren().get(i);
-                if (!field.getName().equals("id")) {
-                    if (field.getType() == Long.class) {
-                        field.set(entity, Long.parseLong(textField.getText()));
-                    } else if (field.getType() == Integer.class) {
-                        field.set(entity, Integer.parseInt(textField.getText()));
-                    } else if (field.getType() == Double.class) {
-                        field.set(entity, Double.parseDouble(textField.getText()));
-                    } else if (field.getType() == List.class) {
-                        field.set(entity, null);
-                    } else {
-                        field.set(entity, textField.getText());
-                    }
-                }
-
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
+        T entity = selectedEntity;
+        switch (entity){
+            case Assembly a->{
+                System.out.println("aaaa");
             }
+            case CheckProvide cp->{
+
+            }
+            case CheckSaleComponent csc->{
+
+            }
+            case CheckSaleEndProduct csep->{
+
+            }
+            case ClientRep cr->{
+
+            }
+            case Components c->{
+
+            }
+            case EndProduct ep->{
+
+            }
+            case Firm f->{
+
+            }
+            case Hire h->{
+
+            }
+            case Provide p->{
+
+            }
+            case Provider p->{
+                //Provider provider = getEntity(Provider.class, p.getId());
+                System.out.println(p);
+            }
+            case SaleComponent sc->{
+
+            }
+            case SaleEndProduct sep->{
+
+            }
+            case TradeAgent ta->{
+
+            }
+            default -> throw new IllegalStateException("Unexpected value: " + entity);
         }
-        saveEntity(entity);
+//
+//        T
+//
+//        T entity = selectedClass.newInstance();
+////        if (entity == null) {
+////            return;
+////        }
+//
+//        Field[] fields = entity.getClass().getDeclaredFields();
+//        for (int i = 0; i < fields.length; i++) {
+//            Field field = fields[i];
+//            try {
+//                field.setAccessible(true);
+//                TextField textField = (TextField) inputFields.getChildren().get(i);
+//                if (!field.getName().equals("id")) {
+//                    if (field.getType() == Long.class) {
+//                        field.set(entity, Long.parseLong(textField.getText()));
+//                    } else if (field.getType() == Integer.class) {
+//                        field.set(entity, Integer.parseInt(textField.getText()));
+//                    } else if (field.getType() == Double.class) {
+//                        field.set(entity, Double.parseDouble(textField.getText()));
+//                    } else if (field.getType() == List.class) {
+//                        field.set(entity, null);
+//                    } else {
+//                        field.set(entity, textField.getText());
+//                    }
+//                }
+//
+//            } catch (IllegalAccessException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        saveEntity(entity);
         fillTable(selectedClass);
     }
 
-    private void saveEntity(T entity) {
+    private void saveNewEntity(T entity) {
         Platform.runLater(() -> {
             HibernateSession.sessionFactory().inTransaction(session -> {
                 session.persist(entity);
+                session.flush();
+            });
+        });
+    }
+    private void updateEntity(T entity) {
+        Platform.runLater(() -> {
+            HibernateSession.sessionFactory().inTransaction(session -> {
+
+
                 session.flush();
             });
         });

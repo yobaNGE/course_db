@@ -26,7 +26,7 @@ public class Components {
     @Column(nullable = false)
     private String firmCreator;
 
-    @OneToMany(mappedBy = "component")
+    @OneToMany(mappedBy = "component", fetch = FetchType.EAGER)
     private List<Assembly> assemblies;
 
     public Long getArticul() {
@@ -83,5 +83,20 @@ public class Components {
 
     public void setAssemblies(List<Assembly> assemblies) {
         this.assemblies = assemblies;
+    }
+
+    public Components(Long articul, String name, Long amount, Long costPerThing, Long minAmount, String firmCreator, List<Assembly> assemblies) {
+        this.articul = articul;
+        this.name = name;
+        this.amount = amount;
+        this.costPerThing = costPerThing;
+        this.minAmount = minAmount;
+        this.firmCreator = firmCreator;
+        this.assemblies = assemblies;
+    }
+
+    public Components(Long costPerThing, String name) {
+        this.costPerThing = costPerThing;
+        this.name = name;
     }
 }

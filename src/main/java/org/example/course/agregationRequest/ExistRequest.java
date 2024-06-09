@@ -22,6 +22,8 @@ import org.example.course.entities.EndProduct;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ExistRequest implements Initializable {
@@ -40,10 +42,16 @@ public class ExistRequest implements Initializable {
     protected void exist() {
         Platform.runLater(() -> {
             HibernateSession.sessionFactory().inTransaction(session -> {
-                Query query = session.createQuery("SELECT DISTINCT name, costPerThing FROM Components WHERE EXISTS (SELECT 1 FROM Components)", Components.class);
+                Query query = session.createQuery("SELECT DISTINCT name, costPerThing FROM Components WHERE EXISTS (SELECT 1 FROM Components)");
+
+                List<Components> list = new ArrayList<>(5);
+                for (Object o : query.getResultList()) {
+                    Object[] row = (Object[]) o;
+                    list.add(new Components((Long) row[1], (String) row[0]));
+                }
                 ObservableList<Components> providerObservableList =
                         FXCollections.observableArrayList(
-                                query.getResultList()
+                                list
                         );
                 System.out.println(providerObservableList);
                 exist_request.setItems(providerObservableList);
@@ -51,6 +59,7 @@ public class ExistRequest implements Initializable {
         });
 
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
