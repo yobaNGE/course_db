@@ -40,13 +40,23 @@ public class HelloController {
         stage.setScene(new Scene(root));
         stage.show();
     }
-
+    @FXML
     public void goExist(ActionEvent event) throws IOException{
         Stage stage = (Stage) go.getScene().getWindow();
         Parent root =
                 FXMLLoader.load(getClass().getResource("existRequest.fxml"));
         ;
         stage.setTitle("Exist");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+    @FXML
+    public void goSum(ActionEvent event) throws IOException{
+        Stage stage = (Stage) go.getScene().getWindow();
+        Parent root =
+                FXMLLoader.load(getClass().getResource("sumRequest.fxml"));
+        ;
+        stage.setTitle("Sum");
         stage.setScene(new Scene(root));
         stage.show();
     }

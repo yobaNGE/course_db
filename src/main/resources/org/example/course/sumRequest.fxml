@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.course.SumRequest"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <TableView fx:id="sum_request" layoutX="202.0" layoutY="92.0" prefHeight="216.0" prefWidth="196.0">
+            <columns>
+                <TableColumn fx:id="id" prefWidth="107.19998168945312" text="id" />
+                <TableColumn fx:id="total_value" prefWidth="87.199951171875" text="total_value" />
+            </columns>
+        </TableView>
+        <Button fx:id="search_bth" onAction="#sum" layoutX="82.0" layoutY="247.0" mnemonicParsing="false" text="Поиск" />
+        <Button fx:id="back" onAction="#goBack" layoutX="82.0" layoutY="295.0" mnemonicParsing="false" text="Назад" />
+        <Label layoutX="210.0" layoutY="55.0" text="Запрос на SUM"/>
+    </children>
+
+</AnchorPane>
