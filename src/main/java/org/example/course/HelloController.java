@@ -60,4 +60,14 @@ public class HelloController {
         stage.setScene(new Scene(root));
         stage.show();
     }
+    @FXML
+    private void goUni (ActionEvent event) throws IOException {
+        Stage stage = (Stage) go.getScene().getWindow();
+        Parent root =
+                FXMLLoader.load(getClass().getResource("adaptive-view.fxml"));
+        ;
+        stage.setTitle("Uni");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }
