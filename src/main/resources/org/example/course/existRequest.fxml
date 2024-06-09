@@ -11,7 +11,7 @@
           <TableColumn fx:id="name" prefWidth="146.0" text="name" />
         </columns>
       </TableView>
-      <Button fx:id="search_bth" layoutX="82.0" layoutY="247.0" mnemonicParsing="false" onAction="#exist" text="Поиск" />
+      <Button fx:id="search_btn" layoutX="82.0" layoutY="247.0" mnemonicParsing="false" onAction="#exist" text="Поиск" />
       <Button fx:id="back" layoutX="82.0" layoutY="295.0" mnemonicParsing="false" onAction="#goBack" text="Назад" />
       <Label layoutX="210.0" layoutY="55.0" text="Запрос на DISTINCT и EXIST" />
    </children>

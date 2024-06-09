@@ -16,7 +16,7 @@
         </columns>
       </TableView>
       <TextField fx:id="text_tf" layoutX="14.0" layoutY="266.0" prefHeight="26.0" prefWidth="116.0" promptText="Время изготовления" />
-      <Button fx:id="search_bth" layoutX="47.0" layoutY="306.0" mnemonicParsing="false" onAction="#request1" text="Поиск" />
+      <Button fx:id="search_btn" layoutX="47.0" layoutY="306.0" mnemonicParsing="false" onAction="#request1" text="Поиск" />
        <Button fx:id="back" layoutX="48.0" layoutY="345.0" mnemonicParsing="false" onAction="#goBack" text="Назад" />
    </children>
 </AnchorPane>
