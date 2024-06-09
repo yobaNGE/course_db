@@ -21,7 +21,7 @@ public class Provider {
     @Column(nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "provider")
+    @OneToMany(mappedBy = "provider", fetch = FetchType.EAGER)
     private List<Provide> provides;
 
     public Provider(String adress, Long amountOfDebt, String name, List<Provide> provides) {
@@ -82,7 +82,6 @@ public class Provider {
                 ", adress='" + adress + '\'' +
                 ", amountOfDebt=" + amountOfDebt +
                 ", name='" + name + '\'' +
-                ", provides=" + provides +
                 '}';
     }
 }

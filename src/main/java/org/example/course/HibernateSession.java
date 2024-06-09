@@ -9,7 +9,7 @@ public class HibernateSession {
         return new Configuration()
                 .setProperty("hibernate.connection.url", "jdbc:postgresql://localhost:5432/course_db") // assembly_firm на свое название бд
                 .setProperty("hibernate.connection.username", "postgres") // на свой
-                .setProperty("hibernate.connection.password", "12345") // на свой
+                .setProperty("hibernate.connection.password", "sef123") // на свой
                 .setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect")
 //                .setProperty("hibernate.hbm2ddl.auto", "create")
                 .addAnnotatedClass(Assembly.class)

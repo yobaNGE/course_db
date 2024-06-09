@@ -6,4 +6,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course.AdaptiveController">
     <TableView fx:id="tableView" layoutX="188.0" layoutY="14.0" prefHeight="360.0" prefWidth="796.0" />
     <ComboBox fx:id="pickClass" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="157.0" />
+    <VBox fx:id="inputFields" layoutX="14.0" layoutY="50.0" prefHeight="264.0" prefWidth="157.0" />
+   <Button fx:id="back" onAction="#goBack" layoutX="24.0" layoutY="349.0" mnemonicParsing="false" text="Назад" />
+   <Button onAction="#save" layoutX="93.0" layoutY="349.0" mnemonicParsing="false" text="Сохранить" />
 </AnchorPane>
