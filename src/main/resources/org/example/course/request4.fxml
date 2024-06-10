@@ -5,17 +5,18 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course.searchRequest.Request4">
     <children>
-        <TableView fx:id="request4_table" layoutX="174.0" layoutY="92.0" prefHeight="216.0" prefWidth="264.0">
+        <TableView fx:id="table" layoutX="174.0" layoutY="92.0" prefHeight="216.0" prefWidth="264.0">
             <columns>
                 <TableColumn fx:id="firm_name" prefWidth="66.19999694824219" text="firm_name" />
                 <TableColumn fx:id="salary" prefWidth="129.0" text="salary" />
             <TableColumn fx:id="name" prefWidth="75.0" text="name" />
             </columns>
         </TableView>
-        <Button fx:id="search_btn" layoutX="82.0" layoutY="247.0" mnemonicParsing="false" onAction="#request4" text="Поиск" />
-        <Button fx:id="back" layoutX="82.0" layoutY="295.0" mnemonicParsing="false" onAction="#goBack" text="Назад" />
+        <Button fx:id="search_btn" layoutX="69.0" layoutY="247.0" mnemonicParsing="false" onAction="#search" text="Поиск" />
+        <Button fx:id="back" layoutX="70.0" layoutY="282.0" mnemonicParsing="false" onAction="#goBack" text="Назад" />
         <Label layoutX="174.0" layoutY="55.0" text="Первый запрос на поиск информации по 3 таблицам" />
         <Label layoutX="134.0" layoutY="343.0" prefHeight="26.0" prefWidth="343.0" text="Вывести сотрудников фирмы, зарплата которых равна n" textFill="#0eb124" />
+      <TextField fx:id="salary_tf" layoutX="33.0" layoutY="200.0" prefHeight="26.0" prefWidth="122.0" promptText="salary" />
     </children>
 
 </AnchorPane>
