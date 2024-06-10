@@ -56,7 +56,7 @@ public class HelloController {
         Parent root =
                 FXMLLoader.load(getClass().getResource("sumRequest.fxml"));
         ;
-        stage.setTitle("Sum");
+        stage.setTitle("Первый запрос на использование функции агрегации");
         stage.setScene(new Scene(root));
         stage.show();
     }
@@ -117,6 +117,16 @@ public class HelloController {
                 FXMLLoader.load(getClass().getResource("avgRequest.fxml"));
         ;
         stage.setTitle("Второй запрос на функции агрегации");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+    @FXML
+    public void goCount(ActionEvent event) throws IOException{
+        Stage stage = (Stage) go.getScene().getWindow();
+        Parent root =
+                FXMLLoader.load(getClass().getResource("countRequest.fxml"));
+        ;
+        stage.setTitle("Третий запрос на функции агрегации");
         stage.setScene(new Scene(root));
         stage.show();
     }
