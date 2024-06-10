@@ -54,31 +54,31 @@ public class Request4 implements Initializable {
 
     @FXML
     private void search() {
-//        Platform.runLater(() -> {
-//            HibernateSession.sessionFactory().inTransaction(session -> {
-//                Query query = session.createQuery("SELECT f.name, h.salary, ta.name " +
-//                        "FROM Firm f JOIN Hire h " +
-//                        "ON f.id = h.firm " +
-//                        "JOIN TrageAgent ta " +
-//                        "ON h.pagerNumber = ta.pagerNumber " +
-//                        "WHERE h.salary IN (:n) ");
-//                query.setParameter("n", Long.parseLong(salary_tf.getText()));
-//                List<Request2.Result> list = new ArrayList<>(5);
-//                //хз че с циклом
-//                for (Object o : query.getResultList()) {
-//                    Object[] row = (Object[]) o;
-//                    list.add(new Request4.Result((Long) row[0], (Long) row[1]));
-//                    System.out.println(row[0] + " " + row[1]);
-//                }
-//                ObservableList<Request2.Result> providerObservableList =
-//                        FXCollections.observableArrayList(
-//                                list
-//                        );
-//                System.out.println(providerObservableList);
-//                table.setItems(providerObservableList);
-//                System.out.println(query.getResultList());
-//            });
-//        });
+        Platform.runLater(() -> {
+            HibernateSession.sessionFactory().inTransaction(session -> {
+                Query query = session.createQuery("SELECT f.name, h.salary, ta.name " +
+                        "FROM Firm f JOIN Hire h " +
+                        "ON f.id = h.firm.id " +
+                        "JOIN TradeAgent ta " +
+                        "ON h.pagerNumber = ta.pagerNumber " +
+                        "WHERE h.salary IN (:n) ");
+                query.setParameter("n", Long.parseLong(salary_tf.getText()));
+                List<Result> list = new ArrayList<>(5);
+                //хз че с циклом
+                for (Object o : query.getResultList()) {
+                    Object[] row = (Object[]) o;
+                    list.add(new Result((String) row[0], (Long) row[1], (String) row[2]));
+                    System.out.println(row[0] + " " + row[1]);
+                }
+                ObservableList<Result> providerObservableList =
+                        FXCollections.observableArrayList(
+                                list
+                        );
+                System.out.println(providerObservableList);
+                table.setItems(providerObservableList);
+                System.out.println(query.getResultList());
+            });
+        });
     }
     protected class Result {
         private String firm_name;
@@ -91,11 +91,11 @@ public class Request4 implements Initializable {
             this.name = name;
         }
 
-        public String getFirmName() {
+        public String getFirm_name() {
             return firm_name;
         }
 
-        public void setFirmName(String firm_name) {
+        public void setFirm_name(String firm_name) {
             this.firm_name = firm_name;
         }
 
@@ -106,12 +106,13 @@ public class Request4 implements Initializable {
         public void setSalary(long salary) {
             this.salary = salary;
         }
-        public void setName(String name) {
-            this.name = name;
-        }
 
         public String getName() {
             return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
         }
     }
     @Override

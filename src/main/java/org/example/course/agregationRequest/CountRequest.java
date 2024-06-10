@@ -51,8 +51,8 @@ public class CountRequest implements Initializable {
             HibernateSession.sessionFactory().inTransaction(session -> {
                 Query query = session.createQuery("SELECT f.name, COUNT(*) as employee_count " +
                         "FROM Firm f JOIN Hire h " +
-                        "ON f.id = h.firm " +
-                        "Group By firm.id");
+                        "ON f.id = h.firm.id " +
+                        "Group By f.id");
                 List<CountRequest.Result> list = new ArrayList<>(5);
                 for (Object o : query.getResultList()) {
                     Object[] row = (Object[]) o;

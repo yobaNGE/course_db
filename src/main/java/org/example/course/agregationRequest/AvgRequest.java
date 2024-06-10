@@ -29,11 +29,11 @@ public class AvgRequest implements Initializable {
     @FXML
     private Button back;
     @FXML
-    private TableView<AvgRequest.Result> table = new TableView<>();
+    private TableView<Result> table = new TableView<>();
     @FXML
-    private TableColumn<AvgRequest.Result, String> firm;
+    private TableColumn<Result, String> firm;
     @FXML
-    private TableColumn<AvgRequest.Result, Long> avg_salary;
+    private TableColumn<Result, Double> avg_salary;
     @FXML
     void goBack(ActionEvent event) throws IOException { // GO BACK!!!
         Stage stage = (Stage) back.getScene().getWindow();
@@ -51,15 +51,15 @@ public class AvgRequest implements Initializable {
             HibernateSession.sessionFactory().inTransaction(session -> {
                 Query query = session.createQuery("SELECT f.name, AVG(h.salary) as average_salary " +
                         "FROM Firm f JOIN Hire h " +
-                        "ON f.id = h.firm " +
-                        "Group By firm.id");
-                List<AvgRequest.Result> list = new ArrayList<>(5);
+                        "ON f.id = h.firm.id " +
+                        "Group By f.id");
+                List<Result> list = new ArrayList<>(5);
                 for (Object o : query.getResultList()) {
                     Object[] row = (Object[]) o;
-                    list.add(new AvgRequest.Result((String) row[0], (Long) row[1]));
+                    list.add(new Result((String) row[0], (Double) row[1]));
                     System.out.println(row[0] + " " + row[1]);
                 }
-                ObservableList<AvgRequest.Result> providerObservableList =
+                ObservableList<Result> providerObservableList =
                         FXCollections.observableArrayList(
                                 list
                         );
@@ -77,9 +77,9 @@ public class AvgRequest implements Initializable {
     }
     protected class Result {
         private String firm;
-        private long avg_salary;
+        private Double avg_salary;
 
-        public Result(String firm, long avg_salary) {
+        public Result(String firm, Double avg_salary) {
             this.firm = firm;
             this.avg_salary = avg_salary;
         }
@@ -92,9 +92,9 @@ public class AvgRequest implements Initializable {
             this.firm = firm;
         }
 
-        public long getAvg_salary() {return avg_salary;}
+        public Double getAvg_salary() {return avg_salary;}
 
-        public void setAvg_salary(long avg_salary) {
+        public void setAvg_salary(Double avg_salary) {
             this.avg_salary = avg_salary;
         }
     }
