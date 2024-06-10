@@ -5,7 +5,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course.agregationRequest.SumRequest">
     <children>
-        <TableView fx:id="sum_request" layoutX="201.0" layoutY="91.0" prefHeight="268.0" prefWidth="269.0">
+        <TableView fx:id="sum_request" layoutX="184.0" layoutY="77.0" prefHeight="268.0" prefWidth="269.0">
             <columns>
                 <TableColumn fx:id="id" prefWidth="107.19998168945312" text="id" />
                 <TableColumn fx:id="total_value" prefWidth="87.199951171875" text="total_value" />
@@ -13,7 +13,8 @@
         </TableView>
         <Button fx:id="search_btn" layoutX="82.0" layoutY="247.0" mnemonicParsing="false" onAction="#sum" text="Поиск" />
         <Button fx:id="back" layoutX="82.0" layoutY="295.0" mnemonicParsing="false" onAction="#goBack" text="Назад" />
-        <Label layoutX="210.0" layoutY="55.0" text="Запрос на SUM" />
+        <Label layoutX="151.0" layoutY="47.0" text="Первый запрос на использование функций агрегации (SUM)" />
+        <Label layoutX="132.0" layoutY="359.0" prefHeight="26.0" prefWidth="400.0" text="Посчитать стоимость производства продуктов(кол-во*цена за штуку)" textFill="#0eb124"/>
     </children>
 
 </AnchorPane>

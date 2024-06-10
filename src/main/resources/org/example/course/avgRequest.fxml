@@ -13,6 +13,7 @@
         </TableView>
         <Button fx:id="search_btn" layoutX="82.0" layoutY="247.0" mnemonicParsing="false" onAction="#search" text="Поиск" />
         <Button fx:id="back" layoutX="82.0" layoutY="295.0" mnemonicParsing="false" onAction="#goBack" text="Назад" />
-        <Label layoutX="174.0" layoutY="55.0" text="Второй запрос на использование функций агрегации" />
+        <Label layoutX="137.0" layoutY="56.0" text="Второй запрос на использование функций агрегации(AVG)" />
+        <Label layoutX="171.0" layoutY="336.0" prefHeight="26.0" prefWidth="309.0" text="Посчитать среднюю зарплату сотрудников по фирме" textFill="#0eb124" />
     </children>
 </AnchorPane>

@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.course.agregationRequest.CountRequest"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course.agregationRequest.CountRequest">
     <children>
         <TableView fx:id="table" layoutX="202.0" layoutY="92.0" prefHeight="216.0" prefWidth="196.0">
             <columns>
@@ -19,7 +13,8 @@
         </TableView>
         <Button fx:id="search_btn" layoutX="82.0" layoutY="247.0" mnemonicParsing="false" onAction="#search" text="Поиск" />
         <Button fx:id="back" layoutX="82.0" layoutY="295.0" mnemonicParsing="false" onAction="#goBack" text="Назад" />
-        <Label layoutX="174.0" layoutY="55.0" text="Второй запрос на использование функций агрегации" />
+        <Label layoutX="133.0" layoutY="58.0" text="Третий запрос на использование функций агрегации(Count)" />
+      <Label layoutX="171.0" layoutY="336.0" prefHeight="26.0" prefWidth="270.0" text="Посчитать количество сотрудников у фирмы" textFill="#0eb124"/>
     </children>
 
 </AnchorPane>

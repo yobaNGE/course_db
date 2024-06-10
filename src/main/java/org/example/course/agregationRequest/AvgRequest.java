@@ -56,7 +56,7 @@ public class AvgRequest implements Initializable {
                 List<AvgRequest.Result> list = new ArrayList<>(5);
                 for (Object o : query.getResultList()) {
                     Object[] row = (Object[]) o;
-                    list.add(new AvgRequest.Result((Long) row[0], (Long) row[1]));
+                    list.add(new AvgRequest.Result((String) row[0], (Long) row[1]));
                     System.out.println(row[0] + " " + row[1]);
                 }
                 ObservableList<AvgRequest.Result> providerObservableList =
@@ -76,19 +76,19 @@ public class AvgRequest implements Initializable {
         avg_salary.setCellValueFactory(new PropertyValueFactory<>("avg_salary"));
     }
     protected class Result {
-        private long firm;
+        private String firm;
         private long avg_salary;
 
-        public Result(long firm, long avg_salary) {
+        public Result(String firm, long avg_salary) {
             this.firm = firm;
             this.avg_salary = avg_salary;
         }
 
-        public long getFirm() {
+        public String getFirm() {
             return firm;
         }
 
-        public void setFirm(long firm) {
+        public void setFirm(String firm) {
             this.firm = firm;
         }
 

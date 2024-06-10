@@ -15,6 +15,7 @@
         <Button fx:id="search_btn" layoutX="82.0" layoutY="247.0" mnemonicParsing="false" onAction="#request4" text="Поиск" />
         <Button fx:id="back" layoutX="82.0" layoutY="295.0" mnemonicParsing="false" onAction="#goBack" text="Назад" />
         <Label layoutX="174.0" layoutY="55.0" text="Первый запрос на поиск информации по 3 таблицам" />
+        <Label layoutX="134.0" layoutY="343.0" prefHeight="26.0" prefWidth="343.0" text="Вывести сотрудников фирмы, зарплата которых равна n" textFill="#0eb124" />
     </children>
 
 </AnchorPane>

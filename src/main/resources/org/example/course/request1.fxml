@@ -5,7 +5,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course.searchRequest.Request1Controller">
    <children>
-      <TableView fx:id="request1_table" layoutX="135.0" layoutY="14.0" prefHeight="369.0" prefWidth="451.0">
+      <TableView fx:id="request1_table" layoutX="135.0" layoutY="14.0" prefHeight="344.0" prefWidth="452.0">
         <columns>
           <TableColumn fx:id="id" prefWidth="75.0" text="id" />
           <TableColumn fx:id="time_to_produce" prefWidth="75.0" text="time_to_produce" />
@@ -18,5 +18,6 @@
       <TextField fx:id="text_tf" layoutX="14.0" layoutY="266.0" prefHeight="26.0" prefWidth="116.0" promptText="Время изготовления" />
       <Button fx:id="search_btn" layoutX="47.0" layoutY="306.0" mnemonicParsing="false" onAction="#request1" text="Поиск" />
        <Button fx:id="back" layoutX="48.0" layoutY="345.0" mnemonicParsing="false" onAction="#goBack" text="Назад" />
+       <Label layoutX="161.0" layoutY="357.0" prefHeight="26.0" prefWidth="400.0" text="Вывести продукты, время производства которых составляет n часов" textFill="#0eb124" />
    </children>
 </AnchorPane>

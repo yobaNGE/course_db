@@ -56,7 +56,7 @@ public class CountRequest implements Initializable {
                 List<CountRequest.Result> list = new ArrayList<>(5);
                 for (Object o : query.getResultList()) {
                     Object[] row = (Object[]) o;
-                    list.add(new CountRequest.Result((Long) row[0], (Long) row[1]));
+                    list.add(new CountRequest.Result((String) row[0], (Long) row[1]));
                     System.out.println(row[0] + " " + row[1]);
                 }
                 ObservableList<CountRequest.Result> providerObservableList =
@@ -76,19 +76,19 @@ public class CountRequest implements Initializable {
         employee_count.setCellValueFactory(new PropertyValueFactory<>("employee_count"));
     }
     protected class Result {
-        private long firm;
+        private String firm;
         private long employee_count;
 
-        public Result(long firm, long employee_count) {
+        public Result(String firm, long employee_count) {
             this.firm = firm;
             this.employee_count = employee_count;
         }
 
-        public long getFirm() {
+        public String getFirm() {
             return firm;
         }
 
-        public void setFirm(long firm) {
+        public void setFirm(String firm) {
             this.firm = firm;
         }
 

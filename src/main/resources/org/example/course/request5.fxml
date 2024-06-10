@@ -15,6 +15,7 @@
         <Button fx:id="search_btn" layoutX="82.0" layoutY="247.0" mnemonicParsing="false" onAction="#request5" text="Поиск" />
         <Button fx:id="back" layoutX="82.0" layoutY="295.0" mnemonicParsing="false" onAction="#goBack" text="Назад" />
         <Label layoutX="174.0" layoutY="55.0" text="Второй запрос на поиск информации по 3 таблицам" />
+        <Label layoutX="68.0" layoutY="359.0" prefHeight="26.0" prefWidth="462.0" text="Вывести артикулы компонентов дата поставки которых равна n и объем равен b" textFill="#0eb124" />
     </children>
 
 </AnchorPane>
