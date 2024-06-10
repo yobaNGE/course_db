@@ -15,9 +15,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.example.course.HibernateSession;
-import org.example.course.Request3;
-import org.example.course.entities.Assembly;
-import org.example.course.entities.Components;
 
 import java.io.IOException;
 import java.net.URL;
@@ -63,8 +60,6 @@ public class SumRequest implements Initializable {
     private void sum() {
         System.out.println("sum");
         HibernateSession.sessionFactory().inTransaction(session -> {
-//            Query query = session.createQuery("SELECT Assembly.id, sum(Assembly.amountToProduce * EndProduct.costPerThing) as total_value " +
-//                    "from Assembly join EndProduct on Assembly.id = EndProduct.assembly.id group by Assembly.id");
             Query query = session.createQuery("SELECT a.id, sum(a.amountToProduce * e.costPerThing) as total_value " +
                     "from Assembly a join EndProduct e on a.id = e.assembly.id group by a.id");
             List<Result> list = new ArrayList<>(5);

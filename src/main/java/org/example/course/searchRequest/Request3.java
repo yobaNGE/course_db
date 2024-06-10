@@ -1,4 +1,4 @@
-package org.example.course;
+package org.example.course.searchRequest;
 
 import jakarta.persistence.Query;
 import javafx.application.Platform;
@@ -16,6 +16,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.example.course.HibernateSession;
 import org.example.course.entities.CheckSaleComponent;
 import org.example.course.entities.CheckSaleEndProduct;
 import org.example.course.entities.Components;

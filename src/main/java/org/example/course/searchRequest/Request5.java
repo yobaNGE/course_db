@@ -1,4 +1,4 @@
-package org.example.course;
+package org.example.course.searchRequest;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

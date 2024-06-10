@@ -110,4 +110,14 @@ public class HelloController {
         stage.setScene(new Scene(root));
         stage.show();
     }
+    @FXML
+    public void goAvg(ActionEvent event) throws IOException{
+        Stage stage = (Stage) go.getScene().getWindow();
+        Parent root =
+                FXMLLoader.load(getClass().getResource("avgRequest.fxml"));
+        ;
+        stage.setTitle("Второй запрос на функции агрегации");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }

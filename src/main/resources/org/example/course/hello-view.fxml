@@ -9,8 +9,9 @@
     <Button layoutX="22.0" layoutY="92.0" onAction="#onHelloButtonClick" prefHeight="25.0" prefWidth="162.0" text="Search request 1 table" />
    <Button layoutX="22.0" layoutY="128.0" mnemonicParsing="false" onAction="#goReq2" prefHeight="25.0" prefWidth="162.0" text="1st search request 2 tables" />
     <Button fx:id="go" layoutX="268.0" layoutY="92.0" onAction="#goProvider" text="Provider!" />
-   <Button fx:id="exist" layoutX="434.0" layoutY="148.0" mnemonicParsing="false" onAction="#goExist" text="Exist and Distinct request" />
+   <Button fx:id="exist" layoutX="443.0" layoutY="187.0" mnemonicParsing="false" onAction="#goExist" text="Exist and Distinct request" />
    <Button fx:id="sum" layoutX="509.0" layoutY="92.0" mnemonicParsing="false" onAction="#goSum" text="Sum" />
+    <Button fx:id="avg" layoutX="518.0" layoutY="128.0" mnemonicParsing="false" onAction="#goAvg" text="Avg" />
    <Button layoutX="22.0" layoutY="161.0" mnemonicParsing="false" onAction="#goReq3" text="2nd search request 2 tables" />
     <Button layoutX="22.0" layoutY="200.0" mnemonicParsing="false" onAction="#goReq4" prefHeight="25.0" prefWidth="162.0" text="1st search request 3 tables" />
     <Button layoutX="22.0" layoutY="240.0" mnemonicParsing="false" onAction="#goReq5" text="2nd search request 3 tables" />
