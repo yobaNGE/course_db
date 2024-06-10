@@ -57,32 +57,32 @@ public class Request5 implements Initializable {
 
     @FXML
     private void search() {
-        Platform.runLater(() -> {
-            HibernateSession.sessionFactory().inTransaction(session -> {
-                Query query = session.createQuery("SELECT c.articul, csc.scopeOfSupply, sc.dateOfSupply " +
-                        "FROM CheckSaleComponent csc JOIN Components c " +
-                        "ON c.articul = csc.articul " +
-                        "JOIN SaleComponent sc " +
-                        "ON csc.id = sc.checkSaleComponent " +
-                        "WHERE sc.dateOfSupply=:n and csc.scopeOfSupply=:b");
-                query.setParameter("n", Long.parseLong(date_of_supply_tf.getText()));
-                query.setParameter("b", Long.parseLong(scope_of_supply_tf.getText()));
-                List<Request2.Result> list = new ArrayList<>(5);
-                //хз че с циклом
-                for (Object o : query.getResultList()) {
-                    Object[] row = (Object[]) o;
-                    list.add(new Request5.Result((Long) row[0], (Long) row[1]));
-                    System.out.println(row[0] + " " + row[1]);
-                }
-                ObservableList<Request2.Result> providerObservableList =
-                        FXCollections.observableArrayList(
-                                list
-                        );
-                System.out.println(providerObservableList);
-                table.setItems(providerObservableList);
-                System.out.println(query.getResultList());
-            });
-        });
+//        Platform.runLater(() -> {
+//            HibernateSession.sessionFactory().inTransaction(session -> {
+//                Query query = session.createQuery("SELECT c.articul, csc.scopeOfSupply, sc.dateOfSupply " +
+//                        "FROM CheckSaleComponent csc JOIN Components c " +
+//                        "ON c.articul = csc.articul " +
+//                        "JOIN SaleComponent sc " +
+//                        "ON csc.id = sc.checkSaleComponent " +
+//                        "WHERE sc.dateOfSupply=:n and csc.scopeOfSupply=:b");
+//                query.setParameter("n", Long.parseLong(date_of_supply_tf.getText()));
+//                query.setParameter("b", Long.parseLong(scope_of_supply_tf.getText()));
+//                List<Request2.Result> list = new ArrayList<>(5);
+//                //хз че с циклом
+//                for (Object o : query.getResultList()) {
+//                    Object[] row = (Object[]) o;
+//                    list.add(new Request5.Result((Long) row[0], (Long) row[1]));
+//                    System.out.println(row[0] + " " + row[1]);
+//                }
+//                ObservableList<Request2.Result> providerObservableList =
+//                        FXCollections.observableArrayList(
+//                                list
+//                        );
+//                System.out.println(providerObservableList);
+//                table.setItems(providerObservableList);
+//                System.out.println(query.getResultList());
+//            });
+//        });
     }
     protected class Result {
         private long articul;
