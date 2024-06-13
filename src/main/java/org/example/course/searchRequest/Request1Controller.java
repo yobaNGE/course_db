@@ -10,10 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.example.course.HibernateSession;
@@ -46,6 +43,8 @@ public class Request1Controller implements Initializable {
     private TableColumn<EndProduct, Long> assembly_id;
     @FXML
     private Button back;
+    @FXML
+    private Label label;
 
     @FXML
     protected void request1() {
@@ -59,6 +58,12 @@ public class Request1Controller implements Initializable {
                         );
                 System.out.println(providerObservableList);
                 request1_table.setItems(providerObservableList);
+                if (providerObservableList.isEmpty()){
+                    label.setText("Продукта с таким временем изготовления нет");
+                }
+                else {
+                    label.setText("");
+                }
             });
         });
 

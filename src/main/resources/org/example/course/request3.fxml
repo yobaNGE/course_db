@@ -16,6 +16,7 @@
         <TextField fx:id="time" layoutX="32.0" layoutY="92.0" promptText="name" />
         <TextField fx:id="scope" layoutX="33.0" layoutY="141.0" promptText="scope" />
         <Label layoutX="174.0" layoutY="55.0" text="Второй запрос на поиск информации по 2 таблицам" />
+        <Label fx:id="label" layoutX="161.0" layoutY="21.0" textFill="#fc0b0b" />
         <Label layoutX="42.0" layoutY="348.0" prefHeight="26.0" prefWidth="490.0" text="Вывести артикулы компонентов имя которых равно n и объем производства равен b" textFill="#0eb124" />
     </children>
 

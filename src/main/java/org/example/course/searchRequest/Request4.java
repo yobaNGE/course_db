@@ -10,10 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.example.course.HibernateSession;
@@ -42,6 +39,8 @@ public class Request4 implements Initializable {
     @FXML
     private TextField salary_tf;
     @FXML
+    private Label label;
+    @FXML
     void goBack(ActionEvent event) throws IOException { // GO BACK!!!
         Stage stage = (Stage) back.getScene().getWindow();
         Parent root =
@@ -64,7 +63,6 @@ public class Request4 implements Initializable {
                         "WHERE h.salary IN (:n) ");
                 query.setParameter("n", Long.parseLong(salary_tf.getText()));
                 List<Result> list = new ArrayList<>(5);
-                //хз че с циклом
                 for (Object o : query.getResultList()) {
                     Object[] row = (Object[]) o;
                     list.add(new Result((String) row[0], (Long) row[1], (String) row[2]));
@@ -77,6 +75,12 @@ public class Request4 implements Initializable {
                 System.out.println(providerObservableList);
                 table.setItems(providerObservableList);
                 System.out.println(query.getResultList());
+                if (providerObservableList.isEmpty()){
+                    label.setText("Сотрудников с такой зарплатой нет");
+                }
+                else {
+                    label.setText("");
+                }
             });
         });
     }

@@ -10,10 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.example.course.HibernateSession;
@@ -42,6 +39,8 @@ public class Request2 implements Initializable {
     private TextField scope;
     @FXML
     private TextField time;
+    @FXML
+    private Label label;
 
     public void request2(ActionEvent event) {
     }
@@ -86,6 +85,12 @@ public class Request2 implements Initializable {
                 System.out.println(providerObservableList);
                 request2_table.setItems(providerObservableList);
                 System.out.println(query.getResultList());
+                if (providerObservableList.isEmpty()){
+                    label.setText("Готовых изделий с такими данными нет");
+                }
+                else {
+                    label.setText("");
+                }
             });
         });
     }

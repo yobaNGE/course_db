@@ -15,6 +15,7 @@
         <Button fx:id="search_btn" layoutX="62.0" layoutY="247.0" mnemonicParsing="false" onAction="#search" text="Поиск" />
         <Button fx:id="back" layoutX="62.0" layoutY="282.0" mnemonicParsing="false" onAction="#goBack" text="Назад" />
         <Label layoutX="174.0" layoutY="55.0" text="Второй запрос на поиск информации по 3 таблицам" />
+        <Label fx:id="label" layoutX="161.0" layoutY="21.0" textFill="#fc0b0b" />
         <Label layoutX="68.0" layoutY="359.0" prefHeight="26.0" prefWidth="462.0" text="Вывести артикулы компонентов дата поставки которых равна n и объем равен b" textFill="#0eb124" />
       <TextField fx:id="date_of_supply_tf" layoutX="25.0" layoutY="155.0" prefHeight="26.0" prefWidth="123.0" promptText="дата поставки" />
       <TextField fx:id="scope_of_supply_tf" layoutX="26.0" layoutY="200.0" prefHeight="26.0" prefWidth="123.0" promptText="объем поставки" />

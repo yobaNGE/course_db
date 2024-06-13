@@ -11,10 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.example.course.HibernateSession;
@@ -44,6 +41,8 @@ public class Request5 implements Initializable {
     private TextField date_of_supply_tf;
     @FXML
     private TextField scope_of_supply_tf;
+    @FXML
+    private Label label;
 
     @FXML
     void goBack(ActionEvent event) throws IOException { // GO BACK!!!
@@ -79,7 +78,6 @@ public class Request5 implements Initializable {
                 query.setParameter("n", timestamp);
                 query.setParameter("b", Long.parseLong(scope_of_supply_tf.getText()));
                 List<Result> list = new ArrayList<>(5);
-                //хз че с циклом
                 for (Object o : query.getResultList()) {
                     Object[] row = (Object[]) o;
                     list.add(new Result((Long) row[0], (Long) row[1], (Timestamp) row[2]));
@@ -92,6 +90,12 @@ public class Request5 implements Initializable {
                 System.out.println(providerObservableList);
                 request5_table.setItems(providerObservableList);
                 System.out.println(query.getResultList());
+                if (providerObservableList.isEmpty()){
+                    label.setText("Компонентов с такими данными нет");
+                }
+                else {
+                    label.setText("");
+                }
             });
         });
     }

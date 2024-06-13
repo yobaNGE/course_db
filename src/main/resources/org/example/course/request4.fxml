@@ -12,6 +12,7 @@
             <TableColumn fx:id="name" prefWidth="75.0" text="name" />
             </columns>
         </TableView>
+        <Label fx:id="label" layoutX="161.0" layoutY="21.0" textFill="#fc0b0b" />
         <Button fx:id="search_btn" layoutX="69.0" layoutY="247.0" mnemonicParsing="false" onAction="#search" text="Поиск" />
         <Button fx:id="back" layoutX="70.0" layoutY="282.0" mnemonicParsing="false" onAction="#goBack" text="Назад" />
         <Label layoutX="174.0" layoutY="55.0" text="Первый запрос на поиск информации по 3 таблицам" />
